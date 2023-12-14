@@ -1,0 +1,62 @@
+.form-control {
+    background-color: rgb(232, 228, 228);
+    border: none;
+    border-radius: 45px;
+    width: 50%;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-family: Rubik bubbles, sans-serif;
+}
+
+.btn-div {
+    text-align: center;
+}
+
+.btn {
+    border-radius: 45px;
+    padding: 5px 30px ;
+}
+
+.col {
+    border-radius: 45px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.row {
+    justify-content: center;
+}
+
+.erroras {
+    text-align: center;
+}
+
+.btn-success {
+    background: #FFF8EE;
+
+}
+
+img {
+    height: 50vh;
+}
+
+.fruit-block {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+p {
+    color: #FF9385;
+    font-weight: bold;
+}
+
+li {
+    color: #FF9385;
+}
+
+.btn {
+    background: #91C788;
+}
