@@ -24,11 +24,10 @@ document.querySelector('form').addEventListener("input", (e) => {
                 }
             })
             .catch((error) => {
-                console.error("Error fetching data:", error);
-                displayErrorMessage("Error fetching data. Please try again later.");
+                console.error("Error", error);
+                displayErrorMessage("Error fetching data.");
             });
     } else {
-        // Clear previous results and hide the error message if the input is empty
         clearResults();
     }
 });
@@ -40,17 +39,23 @@ function updateFruitList(data) {
     data.forEach((fruit) => {
         let fruitHTML = `
         <div class="col g-3 btn-success">
-            <div class="fruit-block">
-                <p class="mt-3">Name: ${fruit.name}</p>
-                <p>Family: ${fruit.family}</p>
-                <p>Nutritions:</p>
-                <ul class="d-flex">
-                    <li>Protein: ${fruit.nutritions.protein} </li>
-                    <li>Fat: ${fruit.nutritions.fat}</li>
-                    <li>Carbohydrate: ${fruit.nutritions.carbohydrates}</li>
-                </ul>
-            </div>
+        <div class="fruit-block">
+            <p class="mt-3">NAME: ${fruit.name}</p>
+            <p>FAMILY: ${fruit.family}</p>
+            <p>ORDER: ${fruit.order}</p>
+            <p>GENUS: ${fruit.genus}</p>
+            <p>NUTRITIONS:</p>
+            <ul class="d-flex list-unstyled">
+                <li class="me-3">Calories: ${fruit.nutritions.calories} </li>
+                <li class="me-3">Fat: ${fruit.nutritions.fat}</li>
+                <li class="me-3">Sugar: ${fruit.nutritions.sugar}</li>
+            </ul>
+            <ul class="d-flex list-unstyled">
+                <li class="me-3">Carbohydrate: ${fruit.nutritions.carbohydrates}</li>
+                <li class="me-3">Protein: ${fruit.nutritions.protein}</li>
+            </ul>
         </div>
+    </div>
         `;
         fruitsContainer.innerHTML += fruitHTML;
     });
@@ -63,18 +68,24 @@ function updateSingleFruit(fruit) {
     fruitsContainer.innerHTML = "";
 
     let fruitHTML = `
-        <div class="col g-3 btn-success">
-            <div class="fruit-block">
-                <p class="mt-3">Name: ${fruit.name}</p>
-                <p>Family: ${fruit.family}</p>
-                <p>Nutritions:</p>
-                <ul class="d-flex">
-                    <li>Protein: ${fruit.nutritions.protein} </li>
-                    <li>Fat: ${fruit.nutritions.fat}</li>
-                    <li>Carbohydrate: ${fruit.nutritions.carbohydrates}</li>
-                </ul>
-            </div>
-        </div>
+    <div class="col g-3 btn-success">
+    <div class="fruit-block">
+        <p class="mt-3">NAME: ${fruit.name}</p>
+        <p>FAMILY: ${fruit.family}</p>
+        <p>ORDER: ${fruit.order}</p>
+        <p>GENUS: ${fruit.genus}</p>
+        <p>NUTRITIONS:</p>
+        <ul class="d-flex list-unstyled">
+            <li class="me-3">Calories: ${fruit.nutritions.calories} </li>
+            <li class="me-3">Fat: ${fruit.nutritions.fat}</li>
+            <li class="me-3">Sugar: ${fruit.nutritions.sugar}</li>
+        </ul>
+        <ul class="d-flex list-unstyled">
+            <li class="me-3">Carbohydrate: ${fruit.nutritions.carbohydrates}</li>
+            <li class="me-3">Protein: ${fruit.nutritions.protein}</li>
+        </ul>
+    </div>
+</div>
     `;
     fruitsContainer.innerHTML = fruitHTML;
 
@@ -97,8 +108,6 @@ function clearResults() {
     hideErrorMessage();
 }
 
-
-
 //-------------------------------------------------------------------------------------
 document.querySelector('form').addEventListener("submit", (e) => {
     e.preventDefault();
@@ -119,13 +128,19 @@ document.querySelector('form').addEventListener("submit", (e) => {
                 let fruitHTML = `
                 <div class="col g-3 btn-success">
                 <div class="fruit-block">
-                    <p class="mt-3">Name: ${fruit.name}</p>
-                    <p>Family: ${fruit.family}</p>
-                    <p>Nutritions:</p>
+                    <p class="mt-3">NAME: ${fruit.name}</p>
+                    <p>FAMILY: ${fruit.family}</p>
+                    <p>ORDER: ${fruit.order}</p>
+                    <p>GENUS: ${fruit.genus}</p>
+                    <p>NUTRITIONS:</p>
                     <ul class="d-flex list-unstyled">
-                        <li class="me-3">Protein: ${fruit.nutritions.protein} </li>
+                        <li class="me-3">Calories: ${fruit.nutritions.calories} </li>
                         <li class="me-3">Fat: ${fruit.nutritions.fat}</li>
+                        <li class="me-3">Sugar: ${fruit.nutritions.sugar}</li>
+                    </ul>
+                    <ul class="d-flex list-unstyled">
                         <li class="me-3">Carbohydrate: ${fruit.nutritions.carbohydrates}</li>
+                        <li class="me-3">Protein: ${fruit.nutritions.protein}</li>
                     </ul>
                 </div>
             </div>
@@ -142,6 +157,6 @@ document.querySelector('.error-message').style.display = "none"
 
 // Paslepti paveiksleli
 function nopic() {
-    var image = document.getElementById('mainImage');
+    let image = document.getElementById('mainImage');
     image.style.display = 'none';
 }
